@@ -1,4 +1,4 @@
-DROP TABLE IF EXISTS users;
+DROP TABLE IF EXISTS users
 CREATE TABLE users
 (
     id       CHAR(36) PRIMARY KEY,
@@ -6,7 +6,6 @@ CREATE TABLE users
     password VARCHAR(255)        NOT NULL,
     status   VARCHAR(255)        NOT NULL DEFAULT 'active'
 );
-
 DROP TABLE IF EXISTS cards;
 CREATE TABLE cards
 (
@@ -16,7 +15,6 @@ CREATE TABLE cards
     balance_in_kopecks INT                NOT NULL,
     FOREIGN KEY (user_id) REFERENCES users (id)
 );
-
 DROP TABLE IF EXISTS auth_codes;
 CREATE TABLE auth_codes
 (
@@ -26,7 +24,6 @@ CREATE TABLE auth_codes
     created TIMESTAMP  NOT NULL DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (user_id) REFERENCES users (id)
 );
-
 DROP TABLE IF EXISTS card_transactions;
 CREATE TABLE card_transactions
 (
