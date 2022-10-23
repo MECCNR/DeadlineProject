@@ -35,10 +35,10 @@ DELETE FROM card_transactions WHERE created < NOW() - INTERVAL 5 MINUTE;
 ```
 Затем вам нужно удалить двух пользователей 'vasya' и 'petya'
 ```
-DELETE FROM users WHERE login = 'vasya'
+DELETE FROM users WHERE login = 'vasya';
 ```
 ```
-DELETE FROM users WHERE login = 'petya'
+DELETE FROM users WHERE login = 'petya';
 ```
 Теперь у вас должно получиться
 
