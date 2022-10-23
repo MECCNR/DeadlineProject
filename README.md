@@ -14,7 +14,7 @@ docker-compose exec mysqldb mysql -u app app -p, и ввести пароль "p
 ```
 3. Запустить SUT в третьем терминале при помощи команды: 
 ```
-java -jar app-deadline.jar -P:jdbc.url=jdbc:mysql://localhost:3306/app -P:jdbc.user=app -P:jdbc.password=pass.
+java -jar app-deadline.jar -P:jdbc.url=jdbc:mysql://localhost:3306/app -P:jdbc.user=app -P:jdbc.password=pass
 ```
 (в случае если у вас не удаётся запустить .jar файл сделайте следующее...
 
