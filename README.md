@@ -12,7 +12,7 @@ docker compose up
 ```
 docker-compose exec mysqldb mysql -u app app -p, и ввести пароль "pass"
 ```
-3. Запустить SUT при помощи команды: 
+3. Запустить SUT в третьем терминале при помощи команды: 
 ```
 java -jar app-deadline.jar -P:jdbc.url=jdbc:mysql://localhost:3306/app -P:jdbc.user=app -P:jdbc.password=pass.
 ```
