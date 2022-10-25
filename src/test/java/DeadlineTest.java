@@ -1,6 +1,9 @@
+import data.Data;
 import lombok.SneakyThrows;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import pages.Setup;
+
 import java.sql.DriverManager;
 
 import static com.codeborne.selenide.Selenide.open;
