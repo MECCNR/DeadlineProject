@@ -26,7 +26,7 @@ public class DeadlineTest {
 
     @Test
     @SneakyThrows
-    void DeadlineTest() {
+    void deadlineTest() {
         var loginPage = open("http://localhost:9999", Setup.class);
         var authInfo = newUser;
         var enter = loginPage.validLogin(authInfo);
