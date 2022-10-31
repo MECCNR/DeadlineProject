@@ -1,39 +1,37 @@
 import data.Data;
 import lombok.SneakyThrows;
+import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestInstance;
+import pages.DashboardPage;
 import pages.Setup;
-
-import java.sql.DriverManager;
 
 import static com.codeborne.selenide.Selenide.open;
 
+@TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class DeadlineTest {
     Data.User newUser = Data.getUser();
+
     @BeforeEach
     @SneakyThrows
     void setUp() {
-        var dataSQL = "INSERT INTO users(id, login, password, status) VALUES (?, ?, ?, ?);";
+        Data.getStarted(newUser);
+    }
 
-        try (
-                var conn = DriverManager.getConnection(
-                        "jdbc:mysql://localhost:3306/app", "app", "pass"
-                );
-                var dataStmt = conn.prepareStatement(dataSQL);
-                ) {
-            dataStmt.setString(1, newUser.getId());
-            dataStmt.setString(2, newUser.getLogin());
-            dataStmt.setString(3, Data.sPassword());
-            dataStmt.setString(4, newUser.getStatus());
-            dataStmt.executeUpdate();
-        }
+    @AfterAll
+    void killTest() {
+        Data.killCode();
     }
 
     @Test
+    @SneakyThrows
     void DeadlineTest() {
         var loginPage = open("http://localhost:9999", Setup.class);
         var authInfo = newUser;
         var enter = loginPage.validLogin(authInfo);
+        Data.enterCode(newUser);
+        new DashboardPage();
     }
 
 
